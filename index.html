@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e2a47;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 3rem;
+        }
+
+        .countdown div {
+            background-color: #fff;
+            color: #1e2a47;
+            padding: 20px;
+            border-radius: 8px;
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown div span {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .countdown div {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>We Are Launching Soon!</h1>
+    <p class="footer">Stay tuned. Our website will be live on April 20, 2025.</p>
+
+    <!-- Countdown -->
+    <div class="countdown">
+        <div id="days">
+            <span id="days-value"></span>
+            <span>Days</span>
+        </div>
+        <div id="hours">
+            <span id="hours-value"></span>
+            <span>Hours</span>
+        </div>
+        <div id="minutes">
+            <span id="minutes-value"></span>
+            <span>Minutes</span>
+        </div>
+        <div id="seconds">
+            <span id="seconds-value"></span>
+            <span>Seconds</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 </p>
+    </div>
+
+    <script>
+        const countDownDate = new Date("April 20, 2025 00:00:00").getTime();
+
+        const x = setInterval(function() {
+
+            const now = new Date().getTime();
+
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days-value").innerHTML = days;
+            document.getElementById("hours-value").innerHTML = hours;
+            document.getElementById("minutes-value").innerHTML = minutes;
+            document.getElementById("seconds-value").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector("h1").innerHTML = "We Have Launched!";
+                document.querySelector(".footer").innerHTML = "&copy; 2025 Your Company Name - We are live now!";
+                document.querySelector(".countdown").style.display = "none";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
