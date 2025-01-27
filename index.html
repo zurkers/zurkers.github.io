@@ -1,126 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Žurke.rs Lansiranje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1e2a47;
-            color: #fff;
             margin: 0;
-            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow: hidden;
+            background: url('https://www.finestclubs.com/packs/media/images/hero-banner-c2c51050ce9096c5ac03ae909b76f28c.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.8), rgba(52, 152, 219, 0.8));
+            z-index: 1;
+        }
+        .container {
             text-align: center;
-            flex-direction: column;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
-
         h1 {
-            font-size: 2.5rem;
-            margin: 20px 0;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: glow 1.5s infinite;
         }
-
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            font-size: 3rem;
+            gap: 20px;
         }
-
-        .countdown div {
-            background-color: #fff;
-            color: #1e2a47;
+        .time-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            width: 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-
-        .countdown div span {
-            font-size: 1.2rem;
-            margin-top: 10px;
+        .time-box span {
+            display: block;
+            font-size: 2.5rem;
             font-weight: 600;
         }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 1.2rem;
-            opacity: 0.7;
+        .time-box small {
+            font-size: 1rem;
+            text-transform: uppercase;
         }
-
-        .countdown div {
-            animation: fadeIn 1s ease-in-out;
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f09, 0 0 40px #f09; }
+            50% { text-shadow: 0 0 5px #fff, 0 0 15px #f09, 0 0 25px #f09, 0 0 35px #f09; }
         }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
     </style>
 </head>
 <body>
-
-    <h1>We Are Launching Soon!</h1>
-    <p class="footer">Stay tuned. Our website will be live on April 20, 2025.</p>
-
-    <!-- Countdown -->
-    <div class="countdown">
-        <div id="days">
-            <span id="days-value"></span>
-            <span>Days</span>
+    <div class="container">
+        <h1>Žurke.rs nova era provoda!</h1>
+        <p>Ne čekaj, već se pripremi za najveće žurke u gradu! Naša aplikacija lansira 20. aprila 2025. godine, i sa njom dolazi prava revolucija u svetu zabave. Rezerviši svoje mesto na ekskluzivnim žurkama, uživaj u najboljoj muzici i atmosferi koja će te nositi celu noć. 🌟</p>
+        <p>Hajde da zajedno kreiramo nezaboravne trenutke. Pridruži nam se i postani deo nove zabavne ere!</p>
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Dana</small>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Sati</small>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Minuta</small>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>Sekundi</small>
+            </div>
         </div>
-        <div id="hours">
-            <span id="hours-value"></span>
-            <span>Hours</span>
-        </div>
-        <div id="minutes">
-            <span id="minutes-value"></span>
-            <span>Minutes</span>
-        </div>
-        <div id="seconds">
-            <span id="seconds-value"></span>
-            <span>Seconds</span>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 </p>
     </div>
 
     <script>
-        const countDownDate = new Date("April 20, 2025 00:00:00").getTime();
+        const targetDate = new Date('April 20, 2025 00:00:00').getTime();
 
-        const x = setInterval(function() {
-
+        function updateCountdown() {
             const now = new Date().getTime();
+            const difference = targetDate - now;
 
-            const distance = countDownDate - now;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
 
-            document.getElementById("days-value").innerHTML = days;
-            document.getElementById("hours-value").innerHTML = hours;
-            document.getElementById("minutes-value").innerHTML = minutes;
-            document.getElementById("seconds-value").innerHTML = seconds;
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.querySelector("h1").innerHTML = "We Have Launched!";
-                document.querySelector(".footer").innerHTML = "&copy; 2025 Your Company Name - We are live now!";
-                document.querySelector(".countdown").style.display = "none";
-            }
-        }, 1000);
+        setInterval(updateCountdown, 1000);
     </script>
-
 </body>
 </html>
