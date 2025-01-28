@@ -51,12 +51,16 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
         .time-box {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            flex: 1;
+            min-width: 70px;
+            max-width: 120px;
         }
         .time-box span {
             display: block;
@@ -70,6 +74,42 @@
         @keyframes glow {
             0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f09, 0 0 40px #f09; }
             50% { text-shadow: 0 0 5px #fff, 0 0 15px #f09, 0 0 25px #f09, 0 0 35px #f09; }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1.1rem;
+            }
+            .time-box span {
+                font-size: 2rem;
+            }
+            .time-box small {
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .countdown {
+                gap: 10px;
+            }
+            .time-box {
+                padding: 15px;
+            }
+            .time-box span {
+                font-size: 1.8rem;
+            }
+            .time-box small {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -107,7 +147,7 @@
 
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const minutes = Math.floor((difference % (1000 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
             document.getElementById('days').textContent = days;
