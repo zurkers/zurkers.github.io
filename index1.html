@@ -58,7 +58,7 @@ nav ul {
 
 .s1{
     height: 65vh;
-    background-image: url(/static/images/slikaprva.png);
+    background-image: url(/images/slikaprva.png);
     background-size: cover;
 }
 .navbar-toggler {
@@ -246,7 +246,7 @@ padding:0;
 }
 .s3{
   
-  background-image: url(/static/images/drugaslika.png);
+  background-image: url(/images/drugaslika.png);
   background-size: cover;
 }
 @media (max-width:1000px) {
@@ -610,7 +610,7 @@ padding:0;
 <div style="background-color: #FCF8FF;" class=" s2 container-fluid">
   <div class="row">
     <div class="col-sm texta3 d-flex flex-column align-items-center justify-content-center">
-      <img  style="max-height: 68vh;" class="telefon1 " src="/static/images/telefon.png">
+      <img  style="max-height: 68vh;" class="telefon1 " src="/images/telefon.png">
     </div>
     <div class="slide-right-onload texta2 col-sm d-flex flex-column align-items-center justify-content-center">
       <h1 style="font-weight: 800; font-size: 45px;" class="mb-4">Preuzmi Odmah</h1>
@@ -626,7 +626,7 @@ padding:0;
       text-decoration: none;
       margin-right: 20px;
       cursor: pointer;
-      " src="/static/images/GetItOnGooglePlay_Badge_Web_color_English.png">
+      " src="/images/GetItOnGooglePlay_Badge_Web_color_English.png">
       <img class="playstore-button" style="
       display: inline-flex;
      align-items: center;
@@ -635,7 +635,7 @@ padding:0;
      max-height: 51px;
      text-decoration: none;
      cursor: pointer;
-     " src="/static/images/5a902db97f96951c82922874.png">
+     " src="/images/5a902db97f96951c82922874.png">
 </div>
     </div>
   </div>
@@ -650,15 +650,15 @@ padding:0;
         Pratite nas na društvenim mrežama i budite u toku sa najnovijim žurkama, događanjima i ekskluzivnim ponudama! 
         Ne propustite zabavu – povežite se s nama!
         <span class="title2">Zaprati</span>
-        <img class="medialogo" style="cursor: pointer;" src="/static/images/facebook.png" alt="Facebook Logo">
-        <img class="medialogo" style="cursor: pointer;" src="/static/images/instagram.png" alt="Instagram Logo">
-        <img class="medialogo" style="cursor: pointer;" src="/static/images/redit.png" alt="Reddit Logo">
-        <img class="medialogo" style="cursor: pointer;" src="/static/images/tiktok.png" alt="TikTok Logo">
-        <img class="medialogo" style="cursor: pointer;" src="/static/images/youtube.png" alt="YouTube Logo">
+        <img class="medialogo" style="cursor: pointer;" src="/images/facebook.png" alt="Facebook Logo">
+        <img class="medialogo" style="cursor: pointer;" src="/images/instagram.png" alt="Instagram Logo">
+        <img class="medialogo" style="cursor: pointer;" src="/images/redit.png" alt="Reddit Logo">
+        <img class="medialogo" style="cursor: pointer;" src="/images/tiktok.png" alt="TikTok Logo">
+        <img class="medialogo" style="cursor: pointer;" src="/images/youtube.png" alt="YouTube Logo">
       </p>
     </div>
     <div class="col-lg-6 texta3 d-flex flex-column align-items-center justify-content-center">
-      <img  style="max-height: 68.5vh;" class="slikatel" src="/static/images/telefon.png">
+      <img  style="max-height: 68.5vh;" class="slikatel" src="/images/telefon.png">
     </div>
   </div>
 </div>
@@ -671,9 +671,9 @@ padding:0;
       <div class="contact-box mt-4">
         <div class="d-flex flex-wrap">
           <div style="flex: 1; min-width: 60%;">
-            <input type="text" id="name" class="form-input" placeholder="Ime">
-            <input type="email" id="email" class="form-input" placeholder="E-Mail">
-            <input type="text" id="message" class="form-input" rows="1" placeholder="Poruka"></input>
+            <input type="text" class="form-input" placeholder="Ime">
+            <input type="email" class="form-input" placeholder="E-Mail">
+            <textarea class="form-input" rows="1" placeholder="Poruka"></textarea>
           </div>
           <div class="contact-info-right" style="flex: 1; min-width: 30%;">
             <div>
@@ -687,50 +687,14 @@ padding:0;
             </div>
           </div>
         </div>
-        <button class="btn btn-pill mt-3" id="contactButton">Kontaktiraj</button>
+        <button type="submit" class="btn btn-pill mt-3">Kontaktiraj</button>
       </div>
     </div>
     <div class="col-md-6 d-flex align-items-center justify-content-center">
-      <img class="crtez" src="/static/images/mailcrtez.png" alt="Placeholder Image">
+      <img class="crtez" src="/images/mailcrtez.png" alt="Placeholder Image">
     </div>
   </div>
 </div>
-
-<script>
-document.getElementById('contactButton').addEventListener('click', function() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Simple email validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    const payload = {
-        name: name,
-        email: email,
-        message: message
-    };
-
-    fetch('/contactForm', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
-</script>
 
 
 <div class="s5 container-fluid">
@@ -814,11 +778,11 @@ document.getElementById('contactButton').addEventListener('click', function() {
   <div class="row">
     <div class=" ikon col-sm-6">
       
-      <img class="medialogo1 me-1" style="cursor: pointer;" src="/static/images/tiktok.png" alt="TikTok Logo">
-      <img class="medialogo1  me-1" style="cursor: pointer;" src="/static/images/instagram.png" alt="Instagram Logo">
-      <img class="medialogo1 me-1" style="cursor: pointer;" src="/static/images/redit.png" alt="Reddit Logo">
-      <img class="medialogo1 me-1" style="cursor: pointer;" src="/static/images/facebook.png" alt="Facebook Logo">
-        <img class="medialogo1" style="cursor: pointer;" src="/static/images/youtube.png" alt="YouTube Logo">
+      <img class="medialogo1 me-1" style="cursor: pointer;" src="/images/tiktok.png" alt="TikTok Logo">
+      <img class="medialogo1  me-1" style="cursor: pointer;" src="/images/instagram.png" alt="Instagram Logo">
+      <img class="medialogo1 me-1" style="cursor: pointer;" src="/images/redit.png" alt="Reddit Logo">
+      <img class="medialogo1 me-1" style="cursor: pointer;" src="/images/facebook.png" alt="Facebook Logo">
+        <img class="medialogo1" style="cursor: pointer;" src="/images/youtube.png" alt="YouTube Logo">
     </div>
     <div class="col-sm-6 d-flex keks3">
       <img class="playstore-button" style="
@@ -830,7 +794,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
      text-decoration: none;
      margin-right: 20px;
      cursor: pointer;
-     " src="/static/images/GetItOnGooglePlay_Badge_Web_color_English.png">
+     " src="/images/GetItOnGooglePlay_Badge_Web_color_English.png">
      <img class="playstore-button" style="
      display: inline-flex;
     align-items: center;
@@ -839,7 +803,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
     max-height: 51px;
     text-decoration: none;
     cursor: pointer;
-    " src="/static/images/5a902db97f96951c82922874.png">
+    " src="/images/5a902db97f96951c82922874.png">
     </div>
   </div>
   <div style="height:1px;background-color: #FCF8FF; margin-top: 10px;"></div>
@@ -909,34 +873,11 @@ document.getElementById('contactButton').addEventListener('click', function() {
         </form>
       </div>
       <div class="col-md-5  p-0">
-        <a href="#" class="d-block w-100 h-100 border-0 rounded-end" style="background-image: url(/static/images/pexels-mark-angelo-sampan-738078-1587927.jpg); background-size:cover; background-position: center;"></a>
+        <a href="#" class="d-block w-100 h-100 border-0 rounded-end" style="background-image: url(/images/pexels-mark-angelo-sampan-738078-1587927.jpg); background-size:cover; background-position: center;"></a>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-document.getElementById("newsletterForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const email = event.target.querySelector("input[type='email']").value;
-
-  fetch("/newsletter", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ email: email })
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.message) {
-      alert(data.message);
-    }
-    document.getElementById("newsletterPopup").style.display = "none";
-  })
-  .catch(error => console.error("Error:", error));
-});
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -988,6 +929,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 
     document.querySelectorAll('.faq-question').forEach(item => {
         item.addEventListener('click', event => {
