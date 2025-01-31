@@ -553,6 +553,57 @@ padding:0;
     margin-right: 4%;
   }
 }
+.b1{
+    background-color: rgb(47, 11, 82); 
+    transition-duration: 0.3s;
+  }
+  .b1:hover{
+    background-color: rgb(73, 25, 121); 
+  }
+  .b2{
+    background-color: transparent;
+    color: #FCF8FF;
+    transition-duration: 0.3s;
+  }
+  .b2:hover{
+    background-color: #fcfcfc;
+    color:#555
+  }
+
+  .keks3{
+    justify-content:end;
+  }
+  @media (max-width:575px){
+    
+    .keks3{
+    justify-content: start;
+    }
+  }
+  .keks{
+    margin-top: 10px;
+  }
+  .keks1{
+    font-size: 17px;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #FCF8FF;
+  }
+  .keks1:hover{
+    text-decoration: underline;
+  }
+  .ikon{
+    padding-top: 12px;
+  }
+  .footer{
+    height: 32vh;
+    background-color: #000;
+  }
+  .title1{
+    color: #FCF8FF;
+    font-size: 17px;
+    padding-top: 20px;
+  }
 </style>
 
 </head>
@@ -601,8 +652,8 @@ padding:0;
         <p style="font-weight: 350;font-size: larger;">Naša aplikacija ti omogućava da brzo pronađeš najbliže događaje i zabave, kao i da kreiraš i deliš svoje žurke sa prijateljima.
             Pridruži se, zabavi se i stvori nezaboravne trenutke!</p>
         <div class="d-flex">
-            <button onclick="scrollToSection('s2')" class="me-3 border border-0 rounded-pill text-white  p-2 px-3" style="width: 50%; font-weight: 600; height:40px; background-color: rgb(47, 11, 82); text-align: center;">PREUZMI</button>
-            <button onclick="scrollToSection('s4')" class="rounded-pill border  bg-transparent text-white p-2 px-3" style="width: 50%;border: #FCF8FF;height:40px; border-width: 2px; font-weight: 600; text-align: center; ">KONTAKT</button>
+            <button onclick="scrollToSection('s2')" class="b1 me-3 border border-0 rounded-pill text-white  p-2 px-3" style="width: 50%; font-weight: 600; height:40px; text-align: center;">PREUZMI</button>
+            <button onclick="scrollToSection('s4')" class="b2 rounded-pill border  p-2 px-3" style="width: 50%;border: #FCF8FF;height:40px; border-width: 2px; font-weight: 600; text-align: center; ">KONTAKT</button>
           </div>
       </div>
 </div>
@@ -856,45 +907,6 @@ document.getElementById('contactButton').addEventListener('click', function() {
     <h5 style="font-size: 15px; color: #555;">Šulovaća 69 Srbija</h5>
   </div>
   </div>
-
-<style>
-  .keks3{
-    justify-content:end;
-  }
-  @media (max-width:575px){
-    
-    .keks3{
-    justify-content: start;
-    }
-  }
-  .keks{
-    margin-top: 10px;
-  }
-  .keks1{
-    font-size: 17px;
-    margin-right: 15px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #FCF8FF;
-  }
-  .keks1:hover{
-    text-decoration: underline;
-  }
-  .ikon{
-    padding-top: 12px;
-  }
-  .footer{
-    height: 32vh;
-    background-color: #000;
-  }
-  .title1{
-    color: #FCF8FF;
-    font-size: 17px;
-    padding-top: 20px;
-  }
-  
-  </style>
-
 <div id="newsletterPopup" class="position-fixed top-0 start-0 w-100 h-100 d-none " style="z-index: 1050; backdrop-filter: blur(5px);">
   <div class="d-flex justify-content-center align-items-center h-100">
     <div class="row bg-white shadow-lg position-relative border-0 rounded" style="max-width: 800px; width: 90%; height: 300px;">
