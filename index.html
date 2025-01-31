@@ -19,7 +19,7 @@ body{
 }
 html, body {
   overflow-x: hidden;
-  
+  background-color: #000;
 }
 
 
@@ -294,6 +294,7 @@ padding:0;
   width: 30px; 
   height: 30px;
   vertical-align: middle; 
+  
  
   }
 
@@ -539,6 +540,19 @@ padding:0;
   transform: translateX(0); /* Move to its original position */
   opacity: 1;
 }
+.navbar-nav{
+  max-width: 1220px;
+  margin-left: 100px;
+  margin-right: 10%;
+}
+@media (max-width:991px){
+  .navbar-nav{
+    margin-left: 0px;
+  }
+  .nav-item{
+    margin-right: 4%;
+  }
+}
 </style>
 
 </head>
@@ -558,23 +572,23 @@ padding:0;
             </button>
             
             <!-- Collapsible Navbar Content -->
-            <div  class="collapse navbar-collapse" id="navbarContent">
+            <div  class="collapse navbar-collapse " id="navbarContent">
               <!-- Links -->
-              <ul class="navbar-nav w-100 mb-0 mb-lg-0 outfit justify-content-end">
-                <li class="nav-item  me-2 ">
+              <ul class="navbar-nav w-100 mb-0 mb-lg-0  d-flex  justify-content-end ">
+                <li class="nav-item  me-0 ">
                   <a class="nav-link active" style="color: #FCF8FF;" href="#">About</a>
                 </li>
-                <li class="nav-item  me-2">
+                <li class="nav-item  me-0">
                   <a class="nav-link" style="color: #FCF8FF;" onclick="scrollToSection('s2')" href="#">Download</a>
                 </li>
-                <li class="nav-item  me-2">
+                <li class="nav-item  me-0">
                   <a class="nav-link" style="color: #FCF8FF;" onclick="scrollToSection('s3')" href="#">Follow Us</a>
                 </li>
-                <li class="nav-item  me-2">
+                <li class="nav-item  me-0">
                     <a class="nav-link" style="color: #FCF8FF;" onclick="scrollToSection('s4')" href="#">Contact Us</a>
                   </li>
-                <li class="nav-item  me-5">
-                    <a class=" me-5 nav-link" style="color: #FCF8FF;" onclick="scrollToSection('s5')" href="#">Q&A</a>
+                <li class="nav-item  ">
+                    <a class=" nav-link" style="color: #FCF8FF;" onclick="scrollToSection('s5')" href="#">Q&A</a>
                   </li>
               </ul>
             </div>
@@ -593,7 +607,7 @@ padding:0;
       </div>
 </div>
 
-<div  class=" s2 container-fluid">
+<div style="background-color: #FCF8FF;" class=" s2 container-fluid">
   <div class="row">
     <div class="col-sm texta3 d-flex flex-column align-items-center justify-content-center">
       <img  style="max-height: 68vh;" class="telefon1 " src="/images/telefon.png">
@@ -759,15 +773,15 @@ padding:0;
     </div>
 </div>
 
-<div class="footer container-fluid" style="overflow: hidden;">
+<div class="footer container-lg" style="overflow: hidden;">
   <h5 class="title1">Zaprati Nas</h5>
   <div class="row">
     <div class=" ikon col-sm-6">
       
-      <img class="medialogo1" style="cursor: pointer;" src="/images/tiktok.png" alt="TikTok Logo">
-      <img class="medialogo1" style="cursor: pointer;" src="/images/instagram.png" alt="Instagram Logo">
-      <img class="medialogo1" style="cursor: pointer;" src="/images/redit.png" alt="Reddit Logo">
-      <img class="medialogo1" style="cursor: pointer;" src="/images/facebook.png" alt="Facebook Logo">
+      <img class="medialogo1 me-1" style="cursor: pointer;" src="/images/tiktok.png" alt="TikTok Logo">
+      <img class="medialogo1  me-1" style="cursor: pointer;" src="/images/instagram.png" alt="Instagram Logo">
+      <img class="medialogo1 me-1" style="cursor: pointer;" src="/images/redit.png" alt="Reddit Logo">
+      <img class="medialogo1 me-1" style="cursor: pointer;" src="/images/facebook.png" alt="Facebook Logo">
         <img class="medialogo1" style="cursor: pointer;" src="/images/youtube.png" alt="YouTube Logo">
     </div>
     <div class="col-sm-6 d-flex keks3">
@@ -803,8 +817,7 @@ padding:0;
   </div>
   <div style="padding-top: 10px;">
     <h5 style="font-size: 15px; color: #555;">Fast Money Inc</h5>
-    <h5 style="font-size: 15px; color: #555;">Šulovaća 69</h5>
-    <h5 style="font-size: 15px; color: #555;">Srbija</h5>
+    <h5 style="font-size: 15px; color: #555;">Šulovaća 69 Srbija</h5>
   </div>
   </div>
 
