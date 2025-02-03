@@ -924,7 +924,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
           <input type="email" class="form-control me-2 border-dark" placeholder="E-mail" required />
           <button type="submit" class="btn btn-dark">Submit</button>
         </form>
-        <div class="backmsg"></div>
+        <div class="backmsg1"></div>
       </div>
       <div class="col-md-5  p-0">
         <a href="#" class="d-block w-100 h-100 border-0 rounded-end" style="background-image: url(/static/images/pexels-mark-angelo-sampan-738078-1587927.jpg); background-size:cover; background-position: center;"></a>
@@ -937,7 +937,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
 document.getElementById("newsletterForm").addEventListener("submit", function(event) {
   event.preventDefault();
   const email = event.target.querySelector("input[type='email']").value;
-  const dismsg=document.querySelector(".backmsg");
+  const dismsg=document.querySelector(".backmsg1");
 
   fetch("http://147.182.237.15:1312/newsletter", {
     method: "POST",
@@ -948,7 +948,7 @@ document.getElementById("newsletterForm").addEventListener("submit", function(ev
   })
   .then(response => response.json())
   .then(data => {
-    if (data.msg) {
+    if (data) {
       dismsg.style.color = "green";
       dismsg.innerHTML = "Thank you!";
 
