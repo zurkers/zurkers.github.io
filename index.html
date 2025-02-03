@@ -769,7 +769,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
         message: message
     };
 
-    fetch('/contactForm', {
+    fetch('http://147.182.237.15:1312/contactForm', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -939,7 +939,7 @@ document.getElementById("newsletterForm").addEventListener("submit", function(ev
   const email = event.target.querySelector("input[type='email']").value;
   const dismsg=document.querySelector(".backmsg");
 
-  fetch("/newsletter", {
+  fetch("http://147.182.237.15:1312/newsletter", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
