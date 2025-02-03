@@ -738,6 +738,7 @@ padding:0;
             </div>
           </div>
         </div>
+        <div class="backmsg"></div>
         <button class="btn btn-pill mt-3" id="contactButton">Kontaktiraj</button>
       </div>
     </div>
@@ -752,11 +753,13 @@ document.getElementById('contactButton').addEventListener('click', function() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
+    const displaymsg=document.querySelector(".backmsg");
 
     // Simple email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
+        displaymsg.style.color="red";
+        displaymsg.innerHTML="Please enter valid E-mail";
         return;
     }
 
@@ -775,6 +778,8 @@ document.getElementById('contactButton').addEventListener('click', function() {
     })
     .then(response => response.json())
     .then(data => {
+        displaymsg.style.color="green";
+        displaymsg.innerHTML="Thank you!";
         console.log('Success:', data);
     })
     .catch((error) => {
@@ -919,6 +924,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
           <input type="email" class="form-control me-2 border-dark" placeholder="E-mail" required />
           <button type="submit" class="btn btn-dark">Submit</button>
         </form>
+        <div class="backmsg"></div>
       </div>
       <div class="col-md-5  p-0">
         <a href="#" class="d-block w-100 h-100 border-0 rounded-end" style="background-image: url(/static/images/pexels-mark-angelo-sampan-738078-1587927.jpg); background-size:cover; background-position: center;"></a>
@@ -931,6 +937,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
 document.getElementById("newsletterForm").addEventListener("submit", function(event) {
   event.preventDefault();
   const email = event.target.querySelector("input[type='email']").value;
+  const dismsg=document.querySelector(".backmsg");
 
   fetch("/newsletter", {
     method: "POST",
@@ -941,10 +948,14 @@ document.getElementById("newsletterForm").addEventListener("submit", function(ev
   })
   .then(response => response.json())
   .then(data => {
-    if (data.message) {
-      alert(data.message);
+    if (data.msg) {
+      dismsg.style.color = "green";
+      dismsg.innerHTML = "Thank you!";
+
+      setTimeout(() => {
+        document.getElementById("newsletterPopup").style.display = "none";
+      }, 1000); 
     }
-    document.getElementById("newsletterPopup").style.display = "none";
   })
   .catch(error => console.error("Error:", error));
 });
@@ -979,26 +990,12 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     popup.classList.remove("d-none");
     popup.style.display = "block";
-  }, 30000);
+  }, 3000);
 
   closePopup.addEventListener("click", () => {
     popup.style.display = "none";
   });
 
-  newsletterForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const emailInput = newsletterForm.querySelector("input[type='email']");
-    const errorMessage = document.getElementById("emailError");
-    if (!emailInput.value) {
-      if (!errorMessage) {
-        emailInput.parentNode.appendChild(error);
-      }
-    } else {
-      const errorMessage = document.getElementById("emailError");
-      if (errorMessage) errorMessage.remove();
-      popup.style.display = "none";
-    }
-  });
 });
 
     document.querySelectorAll('.faq-question').forEach(item => {
