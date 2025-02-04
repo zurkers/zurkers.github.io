@@ -278,6 +278,60 @@
             <img src="/static/images/baloni_sred.png" alt="Balloons">
         </div>
     </main>
+    <script>
+        const targetDate = new Date('April 20, 2025 00:00:00').getTime();
 
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+
+        const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30)); 
+        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+ 
+        document.getElementById('months').textContent = months;
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+    }
+
+        setInterval(updateCountdown, 1000);
+
+
+
+    document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const email = event.target.querySelector("input[type='email']").value;
+        const dismsg=document.querySelector(".backmsg1");
+
+        fetch("http://testapiggwpp:1312/newsletter", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => response.json())
+        .then(data=> {
+        console.log("Response from backend:", data);
+            if (data.message) { 
+            dismsg.style.color = "green";
+            dismsg.innerHTML = data.message;
+
+            setTimeout(() => {
+                document.getElementById("newsletterPopup").style.display = "none";
+            }, 1000);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            dismsg.style.color = "red";
+            dismsg.innerHTML = "An error occurred. Please try again.";
+        });
+        });
+</script>
 </body>
 </html>
